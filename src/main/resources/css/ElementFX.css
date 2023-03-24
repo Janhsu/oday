@@ -1,0 +1,586 @@
+
+.button {
+                         -fx-background-color: rgba(236, 245, 255, 1);
+                         -fx-background-radius: 5px 5px 5px 5px;
+                         -fx-border-color: rgba(179, 216, 255, 1) rgba(179, 216, 255, 1) rgba(179, 216, 255, 1) rgba(179, 216, 255, 1);
+                         -fx-border-radius: 5px 5px 5px 5px;
+                         -fx-text-fill: rgba(64, 158, 255, 1);
+                         -fx-font-size: 15px;
+                         -fx-padding: 5px 10px 5px 10px;
+                         -fx-cursor: HAND;
+                     }
+.button:hover {
+    -fx-background-color: rgba(64, 158, 255, 1);
+    -fx-border-color: rgba(64, 158, 255, 1) rgba(64, 158, 255, 1) rgba(64, 158, 255, 1) rgba(64, 158, 255, 1);
+    -fx-text-fill: rgba(255, 255, 255, 1);
+}
+.button:pressed {
+    -fx-background-color: rgba(58, 142, 230, 1);
+    -fx-border-color: rgba(58, 142, 230, 1) rgba(58, 142, 230, 1) rgba(58, 142, 230, 1) rgba(58, 142, 230, 1);
+    -fx-text-fill: rgba(255, 255, 255, 1);
+}
+.text-field {
+    -fx-border-radius: 5px 5px 5px 5px;
+    -fx-border-color: rgba(193, 197, 205, 1) rgba(193, 197, 205, 1) rgba(193, 197, 205, 1) rgba(193, 197, 205, 1);
+    -fx-border-width: 1.3px 1.3px 1.3px 1.3px;
+    -fx-accent: rgba(46, 188, 232, 1);
+    -fx-background-color: rgba(255, 255, 255, 1);
+    -fx-padding: 5px 3px 5px 3px;
+    -fx-font-size: 14px;
+}
+.text-field:focused {
+    -fx-border-color: rgba(50, 150, 255, 1) rgba(50, 150, 255, 1) rgba(50, 150, 255, 1) rgba(50, 150, 255, 1);
+}
+.list-view {
+    -fx-border-color: rgba(193, 197, 205, 1) rgba(193, 197, 205, 1) rgba(193, 197, 205, 1) rgba(193, 197, 205, 1);
+    -fx-border-width: 1px 1px 1px 1px;
+    -fx-background-insets: 0px 0px 0px 0px;
+}
+.list-view .list-cell {
+    -fx-background-color: rgba(255, 255, 255, 1);
+    -fx-font-size: 15px;
+    -fx-text-fill: rgba(117, 117, 117, 1);
+    -fx-padding: 10px 0px 10px 5px;
+    -fx-border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(235, 238, 245, 1) rgba(0, 0, 0, 0);
+}
+.list-view .list-cell:odd {
+    -fx-background-color: rgba(255, 255, 255, 1);
+}
+.list-view .list-cell:hover {
+    -fx-background-color: rgba(245, 247, 250, 1);
+}
+.list-view:focused .list-cell:selected {
+    -fx-background-color: rgba(236, 245, 255, 1);
+    -fx-text-fill: rgba(117, 117, 117, 1);
+}
+.list-view .scroll-bar .decrement-arrow {
+    -fx-min-width: 0px;
+    -fx-min-height: 0px;
+    -fx-pref-width: 0px;
+    -fx-pref-height: 0px;
+    visibility: hidden;
+}
+.list-view .scroll-bar .increment-arrow {
+    -fx-min-width: 0px;
+    -fx-min-height: 0px;
+    -fx-pref-width: 0px;
+    -fx-pref-height: 0px;
+    visibility: hidden;
+}
+.list-view .scroll-bar .decrement-button {
+    -fx-min-width: 0px;
+    -fx-min-height: 0px;
+    -fx-pref-width: 0px;
+    -fx-pref-height: 0px;
+    visibility: hidden;
+}
+.list-view .scroll-bar .increment-button {
+    -fx-min-width: 0px;
+    -fx-min-height: 0px;
+    -fx-pref-width: 0px;
+    -fx-pref-height: 0px;
+    visibility: hidden;
+}
+.list-view .scroll-bar:vertical {
+    -fx-padding: 0px 0px 0px 0px;
+    -fx-pref-width: 9px;
+    -fx-background-color: rgba(255, 255, 255, 1);
+}
+.list-view .scroll-bar:vertical .thumb {
+    -fx-background-color: rgba(221, 222, 224, 1);
+    -fx-background-insets: 0px 0px 0px 0px;
+    -fx-background-radius: 5px 5px 5px 5px;
+}
+.list-view .scroll-bar:vertical .thumb:pressed {
+    -fx-background-color: rgba(199, 201, 204, 1);
+}
+.list-view:focused {
+    -fx-border-color: rgba(50, 150, 255, 1) rgba(50, 150, 255, 1) rgba(50, 150, 255, 1) rgba(50, 150, 255, 1);
+}
+.text-area {
+    -fx-border-radius: 5px 5px 5px 5px;
+    -fx-border-color: rgba(193, 197, 205, 1) rgba(193, 197, 205, 1) rgba(193, 197, 205, 1) rgba(193, 197, 205, 1);
+    -fx-border-width: 1.3px 1.3px 1.3px 1.3px;
+    -fx-accent: rgba(46, 188, 232, 1);
+    -fx-background-color: rgba(255, 255, 255, 1);
+    -fx-padding: 5px 3px 5px 3px;
+    -fx-font-size: 15px;
+}
+.text-area .content {
+    -fx-background-color: rgba(255, 255, 255, 1);
+}
+.text-area:focused {
+    -fx-border-color: rgba(50, 150, 255, 1) rgba(50, 150, 255, 1) rgba(50, 150, 255, 1) rgba(50, 150, 255, 1);
+}
+.text-area .scroll-bar .decrement-arrow {
+    -fx-min-width: 0px;
+    -fx-min-height: 0px;
+    -fx-pref-width: 0px;
+    -fx-pref-height: 0px;
+    visibility: hidden;
+}
+.text-area .scroll-bar .increment-arrow {
+    -fx-min-width: 0px;
+    -fx-min-height: 0px;
+    -fx-pref-width: 0px;
+    -fx-pref-height: 0px;
+    visibility: hidden;
+}
+.text-area .scroll-bar .decrement-button {
+    -fx-min-width: 0px;
+    -fx-min-height: 0px;
+    -fx-pref-width: 0px;
+    -fx-pref-height: 0px;
+    visibility: hidden;
+}
+.text-area .scroll-bar .increment-button {
+    -fx-min-width: 0px;
+    -fx-min-height: 0px;
+    -fx-pref-width: 0px;
+    -fx-pref-height: 0px;
+    visibility: hidden;
+}
+.text-area .scroll-bar:vertical, .text-area .scroll-bar:horizontal {
+    -fx-padding: 0px 0px 0px 0px;
+    -fx-pref-width: 9px;
+    -fx-background-color: rgba(255, 255, 255, 1);
+}
+.text-area .scroll-bar:vertical .thumb, .text-area .scroll-bar:horizontal .thumb {
+    -fx-background-color: rgba(236, 245, 255, 1);
+    -fx-background-insets: 0px 0px 0px 0px;
+    -fx-background-radius: 0px 0px 0px 0px;
+}
+.text-area .scroll-bar:vertical .thumb:pressed, .text-area .scroll-bar:horizontal .thumb:pressed {
+    -fx-background-color: rgba(124, 188, 255, 1);
+}
+.label {
+    -fx-font-size: 13px;
+    -fx-text-fill: rgba(117, 117, 117, 1);
+}
+.combo-box {
+    -fx-background-color: rgba(255, 255, 255, 1);
+    -fx-border-color: rgba(193, 197, 205, 1) rgba(193, 197, 205, 1) rgba(193, 197, 205, 1) rgba(193, 197, 205, 1);
+    -fx-border-radius: 5px 5px 5px 5px;
+    -fx-cursor: HAND;
+    -fx-font-family: Consolas, monospace;
+}
+.combo-box > .list-cell {
+    -fx-font-size: 17px;
+}
+.combo-box > .arrow-button > .arrow {
+    -fx-shape: "M460.8 755.2a26.112 26.112 0 0 1-18.944-8.704L97.792 363.008a25.6 25.6 0 1 1 37.888-34.304L460.8 691.2l326.656-363.008a25.6 25.6 0 0 1 37.888 34.304L481.28 747.008a26.112 26.112 0 0 1-20.48 8.192z";
+    -fx-background-color: rgba(220, 223, 230, 1);
+    -fx-pref-height: 5px;
+    -fx-pref-width: 10px;
+}
+.combo-box > .arrow-button:pressed .arrow {
+    -fx-background-color: rgba(103, 106, 113, 1);
+}
+.combo-box > .combo-box-popup .list-view {
+    -fx-border-color: rgba(228, 231, 237, 1) rgba(228, 231, 237, 1) rgba(228, 231, 237, 1) rgba(228, 231, 237, 1);
+}
+.combo-box > .combo-box-popup .list-view .list-cell {
+    -fx-background-color: rgba(255, 255, 255, 1);
+    -fx-text-fill: rgba(0, 0, 0, 0.5);
+    -fx-font-size: 17px;
+    -fx-cursor: HAND;
+}
+.combo-box > .combo-box-popup .list-view .list-cell:hover {
+    -fx-background-color: rgba(245, 247, 250, 1);
+}
+.combo-box > .combo-box-popup .list-view .list-cell:selected {
+    -fx-text-fill: rgba(64, 158, 254, 1);
+    -fx-background-color: rgba(245, 247, 250, 1);
+}
+.combo-box > .combo-box-popup .scroll-bar .decrement-arrow {
+    -fx-min-width: 0px;
+    -fx-min-height: 0px;
+    -fx-pref-width: 0px;
+    -fx-pref-height: 0px;
+    visibility: hidden;
+}
+.combo-box > .combo-box-popup .scroll-bar .increment-arrow {
+    -fx-min-width: 0px;
+    -fx-min-height: 0px;
+    -fx-pref-width: 0px;
+    -fx-pref-height: 0px;
+    visibility: hidden;
+}
+.combo-box > .combo-box-popup .scroll-bar .decrement-button {
+    -fx-min-width: 0px;
+    -fx-min-height: 0px;
+    -fx-pref-width: 0px;
+    -fx-pref-height: 0px;
+    visibility: hidden;
+}
+.combo-box > .combo-box-popup .scroll-bar .increment-button {
+    -fx-min-width: 0px;
+    -fx-min-height: 0px;
+    -fx-pref-width: 0px;
+    -fx-pref-height: 0px;
+    visibility: hidden;
+}
+.combo-box > .combo-box-popup .scroll-bar:vertical {
+    -fx-padding: 0px 0px 0px 0px;
+    -fx-pref-width: 9px;
+    -fx-background-color: rgba(255, 255, 255, 1);
+}
+.combo-box > .combo-box-popup .scroll-bar:vertical .thumb {
+    -fx-background-color: rgba(236, 245, 255, 1);
+    -fx-background-insets: 0px 0px 0px 0px;
+    -fx-background-radius: 0px 0px 0px 0px;
+}
+.combo-box > .combo-box-popup .scroll-bar:vertical .thumb:pressed {
+    -fx-background-color: rgba(124, 188, 255, 1);
+}
+.combo-box:focused {
+    -fx-border-color: rgba(50, 150, 255, 1) rgba(50, 150, 255, 1) rgba(50, 150, 255, 1) rgba(50, 150, 255, 1);
+}
+.combo-box:editable > .text-field {
+    -fx-border-width: 0px 0px 0px 0px;
+}
+.combo-box:editable > .arrow-button {
+    -fx-background-color: rgba(255, 255, 255, 1);
+}
+.check-box {
+    -fx-font-size: 14px;
+    -fx-cursor: HAND;
+    -fx-text-fill: rgba(117, 117, 117, 1);
+}
+.check-box .box {
+    -fx-background-color: rgba(255, 255, 255, 1);
+    -fx-background-radius: 3px 3px 3px 3px;
+    -fx-border-color: rgba(193, 197, 205, 1) rgba(193, 197, 205, 1) rgba(193, 197, 205, 1) rgba(193, 197, 205, 1);
+    -fx-border-radius: 3px 3px 3px 3px;
+}
+.check-box:selected .box {
+    -fx-background-color: rgba(64, 158, 255, 1);
+    -fx-border-color: rgba(50, 150, 255, 1) rgba(50, 150, 255, 1) rgba(50, 150, 255, 1) rgba(50, 150, 255, 1);
+}
+.check-box:selected .mark {
+    -fx-background-color: rgba(255, 255, 255, 1);
+    -fx-shape: "M299,396l2-2,3,3,6-6,2,2-8,8Z";
+}
+.scroll-pane {
+    -fx-background-color: rgba(0, 0, 0, 0);
+}
+.scroll-pane .viewport {
+    -fx-background-color: rgba(0, 0, 0, 0);
+}
+.scroll-bar .decrement-arrow {
+    -fx-min-width: 0px;
+    -fx-min-height: 0px;
+    -fx-pref-width: 0px;
+    -fx-pref-height: 0px;
+    visibility: hidden;
+}
+.scroll-bar .increment-arrow {
+    -fx-min-width: 0px;
+    -fx-min-height: 0px;
+    -fx-pref-width: 0px;
+    -fx-pref-height: 0px;
+    visibility: hidden;
+}
+.scroll-bar .decrement-button {
+    -fx-min-width: 0px;
+    -fx-min-height: 0px;
+    -fx-pref-width: 0px;
+    -fx-pref-height: 0px;
+    visibility: hidden;
+}
+.scroll-bar .increment-button {
+    -fx-min-width: 0px;
+    -fx-min-height: 0px;
+    -fx-pref-width: 0px;
+    -fx-pref-height: 0px;
+    visibility: hidden;
+}
+.scroll-bar:vertical {
+    -fx-padding: 0px 0px 0px 0px;
+    -fx-pref-width: 9px;
+    -fx-background-color: rgba(255, 255, 255, 1);
+}
+.scroll-bar:vertical .thumb {
+    -fx-background-color: rgba(236, 245, 255, 1);
+    -fx-background-insets: 0px 0px 0px 0px;
+    -fx-background-radius: 0px 0px 0px 0px;
+}
+.scroll-bar:vertical .thumb:pressed {
+    -fx-background-color: rgba(124, 188, 255, 1);
+}
+.scroll-bar:horizontal {
+    -fx-padding: 0px 0px 0px 0px;
+    -fx-pref-height: 9px;
+    -fx-background-color: rgba(255, 255, 255, 1);
+}
+.scroll-bar:horizontal .thumb {
+    -fx-background-color: rgba(236, 245, 255, 1);
+    -fx-background-insets: 0px 0px 0px 0px;
+    -fx-background-radius: 0px 0px 0px 0px;
+}
+.scroll-bar:horizontal .thumb:pressed {
+    -fx-background-color: rgba(124, 188, 255, 1);
+}
+.date-picker {
+    -fx-border-color: rgba(217, 217, 217, 1) rgba(217, 217, 217, 1) rgba(217, 217, 217, 1) rgba(217, 217, 217, 1);
+    -fx-border-radius: 3px 3px 3px 3px;
+    -fx-background-color: rgba(255, 255, 255, 1);
+}
+.date-picker .arrow-button {
+    -fx-background-color: rgba(255, 255, 255, 1);
+    -fx-cursor: HAND;
+}
+.date-picker .arrow-button:hover, .date-picker .arrow-button:focused {
+    -fx-background-color: rgba(247, 247, 247, 1);
+}
+.date-picker .arrow-button > .arrow {
+    -fx-shape: "M896 448H128v447.957333l477.738667 0.021334L896 895.957333V448z m0-42.666667V192.042667C896 192 768 192 768 192V149.333333h128.042667A42.666667 42.666667 0 0 1 938.666667 192.042667v703.914666A42.624 42.624 0 0 1 896.064 938.666667H127.936A42.666667 42.666667 0 0 1 85.333333 895.957333V192.042667C85.333333 168.469333 104.256 149.333333 127.957333 149.333333H256v42.666667l-128 0.042667V405.333333h768zM298.666667 85.333333h42.666666v170.666667h-42.666666V85.333333z m384 0h42.666666v170.666667h-42.666666V85.333333zM384 149.333333h256v42.666667H384V149.333333z";
+}
+.date-picker .date-picker-popup > .month-year-pane {
+    -fx-background-color: rgba(255, 255, 255, 1);
+    -fx-border-width: 0px 0px 1px 0px;
+    -fx-border-color: rgba(217, 217, 217, 1) rgba(217, 217, 217, 1) rgba(217, 217, 217, 1) rgba(217, 217, 217, 1);
+}
+.date-picker .date-picker-popup > .month-year-pane .spinner > .button {
+    -fx-cursor: HAND;
+    -fx-background-color: rgba(255, 255, 255, 1);
+    -fx-border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+}
+.date-picker .date-picker-popup > .month-year-pane .spinner > .label {
+    -fx-font-weight: 700;
+}
+.date-picker .date-picker-popup > .calendar-grid {
+    -fx-background-color: rgba(255, 255, 255, 1);
+}
+.date-picker .date-picker-popup .date-cell {
+    -fx-background-radius: 3px 3px 3px 3px;
+    -fx-border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+    -fx-cursor: HAND;
+}
+.date-picker .date-picker-popup .date-cell:hover {
+    -fx-background-color: rgba(245, 245, 245, 1);
+    -fx-text-fill: rgba(0, 0, 0, 1);
+}
+.date-picker .date-picker-popup .date-cell:focused {
+    -fx-background-color: rgba(24, 144, 255, 1);
+    -fx-text-fill: rgba(255, 255, 255, 1);
+}
+.date-picker .date-picker-popup .next-month {
+    -fx-background-color: rgba(0, 0, 0, 0);
+    -fx-text-fill: rgba(217, 217, 217, 1);
+}
+.date-picker .date-picker-popup .next-month:hover {
+    -fx-background-color: rgba(245, 245, 245, 1);
+    -fx-text-fill: rgba(217, 217, 217, 1);
+}
+.date-picker .text-field {
+    -fx-border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+}
+.date-picker:focused {
+    -fx-border-color: rgba(64, 169, 255, 1) rgba(64, 169, 255, 1) rgba(64, 169, 255, 1) rgba(64, 169, 255, 1);
+}
+
+.table-view {
+    -fx-selection-bar: rgba(255, 255, 255, 1);
+    -fx-selection-bar-non-focused: rgba(255, 255, 255, 1);
+    -fx-border-color: rgba(193, 197, 205, 1) rgba(193, 197, 205, 1) rgba(193, 197, 205, 1) rgba(193, 197, 205, 1);
+    -fx-border-width: 1px 1px 1px 1px;
+    -fx-background-insets: 0px 0px 0px 0px;
+    -fx-font-family: Consolas, monospace;
+}
+.table-view .column-header {
+    -fx-background-color: rgba(255, 255, 255, 1);
+    -fx-padding: 10px 5px 5px 5px;
+    -fx-border-color: rgba(235, 238, 245, 1) rgba(235, 238, 245, 1) rgba(235, 238, 245, 1) rgba(235, 238, 245, 1);
+    -fx-border-width: 0px 0.5px 0px 0.5px;
+}
+.table-view .filler {
+    -fx-background-color: rgba(255, 255, 255, 1);
+}
+.table-view .table-row-cell {
+    -fx-border-color: rgba(235, 238, 245, 1) rgba(235, 238, 245, 1) rgba(235, 238, 245, 1) rgba(235, 238, 245, 1);
+    -fx-border-width: 0.5px 0px 0.5px 0px;
+}
+.table-view .table-row-cell:odd {
+    -fx-background-color: rgba(250, 250, 250, 1);
+}
+.table-view .table-row-cell:hover {
+    -fx-background-color: rgba(245, 247, 250, 1);
+}
+.table-view .table-row-cell:selected {
+    -fx-background-color: rgba(236, 245, 255, 1);
+}
+.table-view .table-row-cell:selected .text {
+    -fx-fill: rgba(0, 0, 0, 1);
+}
+.table-view .table-cell {
+    -fx-padding: 10px 10px 10px 10px;
+    -fx-font-size: 13px;
+}
+.table-view .table-cell:selected {
+    -fx-text-fill: rgba(0, 0, 0, 1);
+}
+.table-view:focused {
+    -fx-border-color: rgba(50, 150, 255, 1) rgba(50, 150, 255, 1) rgba(50, 150, 255, 1) rgba(50, 150, 255, 1);
+}
+.spinner {
+    -fx-border-color: rgba(220, 223, 230, 1) rgba(220, 223, 230, 1) rgba(220, 223, 230, 1) rgba(220, 223, 230, 1);
+    -fx-border-radius: 5px 5px 5px 5px;
+    -fx-background-insets: 0px 0px 0px 0px;
+    -fx-background-radius: 5px 5px 5px 5px;
+}
+.spinner .increment-arrow-button {
+    -fx-cursor: HAND;
+    -fx-background-color: rgba(245, 247, 250, 1);
+    -fx-border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(220, 223, 230, 1) rgba(220, 223, 230, 1);
+}
+.spinner .increment-arrow-button:hover .increment-arrow {
+    -fx-background-color: rgba(64, 158, 255, 1);
+}
+.spinner .increment-arrow-button .increment-arrow {
+    -fx-shape: "M887.328477 617.152318 533.951458 267.007553c-0.512619-0.512619-1.216181-0.672598-1.759763-1.152533-0.127295-0.127295-0.159978-0.319957-0.287273-0.447252-12.576374-12.416396-32.831716-12.352748-45.280796 0.192662L136.511544 618.944765c-12.447359 12.576374-12.352748 32.800753 0.192662 45.248112 6.239161 6.175514 14.399785 9.280473 22.527725 9.280473 8.224271 0 16.479505-3.168606 22.720387-9.471415L509.792985 333.185325l332.480043 329.407768c6.239161 6.175514 14.368821 9.280473 22.527725 9.280473 8.255235 0 16.479505-3.168606 22.720387-9.471415C899.968499 649.85674 899.872168 629.599677 887.328477 617.152318z";
+}
+.spinner .decrement-arrow-button {
+    -fx-cursor: HAND;
+    -fx-background-color: rgba(245, 247, 250, 1);
+    -fx-border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(220, 223, 230, 1);
+}
+.spinner .decrement-arrow-button:hover .decrement-arrow {
+    -fx-background-color: rgba(64, 158, 255, 1);
+}
+.spinner .decrement-arrow-button .decrement-arrow {
+    -fx-shape: "M890.335385 330.911222c-12.576374-12.416396-32.800753-12.352748-45.248112 0.192662L517.248327 661.951458 184.831931 332.512727c-12.576374-12.447359-32.800753-12.352748-45.280796 0.192662-12.447359 12.576374-12.352748 32.831716 0.192662 45.280796l353.311652 350.112082c0.543583 0.543583 1.247144 0.672598 1.792447 1.183497 0.127295 0.127295 0.159978 0.287273 0.287273 0.416288 6.239161 6.175514 14.399785 9.280473 22.527725 9.280473 8.224271 0 16.479505-3.168606 22.720387-9.471415l350.112082-353.311652C902.975407 363.615643 902.880796 343.360301 890.335385 330.911222z";
+}
+.spinner .text-field {
+    -fx-border-color: rgba(255, 255, 255, 1) rgba(255, 255, 255, 1) rgba(255, 255, 255, 1) rgba(255, 255, 255, 1);
+}
+.spinner:hover {
+    -fx-border-color: rgba(192, 196, 204, 1) rgba(192, 196, 204, 1) rgba(192, 196, 204, 1) rgba(192, 196, 204, 1);
+}
+.tab-pane {
+    -fx-border-color: rgba(193, 197, 205, 1) rgba(193, 197, 205, 1) rgba(193, 197, 205, 1) rgba(193, 197, 205, 1);
+    -fx-border-radius: 5px 5px 5px 5px;
+}
+.tab-pane .tab-header-background {
+    -fx-background-color: rgba(0, 0, 0, 0);
+    -fx-border-color: rgba(228, 231, 237, 1) rgba(228, 231, 237, 1) rgba(228, 231, 237, 1) rgba(228, 231, 237, 1);
+    -fx-border-width: 0px 0px 3px 0px;
+}
+.tab-pane:top .tab-header-area {
+    -fx-background-insets: 0px 0px 1px 0px;
+    -fx-padding: 5px 2px 0px 0px;
+}
+.tab-pane .tab {
+    -fx-padding: 5px 16px 5px 16px;
+    -fx-cursor: HAND;
+    -fx-background-color: rgba(0, 0, 0, 0);
+    -fx-border-width: 0px 0px 3px 0px;
+    -fx-border-color: rgba(228, 231, 237, 1) rgba(228, 231, 237, 1) rgba(228, 231, 237, 1) rgba(228, 231, 237, 1);
+}
+.tab-pane .tab:selected {
+    -fx-border-color: rgba(64, 158, 255, 1) rgba(64, 158, 255, 1) rgba(64, 158, 255, 1) rgba(64, 158, 255, 1);
+}
+.tab-pane .tab:selected .tab-label {
+    -fx-text-fill: rgba(64, 158, 255, 1);
+}
+.tab-pane .tab:hover .tab-label {
+    -fx-text-fill: rgba(64, 158, 255, 1);
+}
+.tab-pane .tab .tab-label {
+    -fx-font-size: 15px;
+}
+.tab-pane .tab .focus-indicator {
+    -fx-border-width: 0px 0px 0px 0px;
+}
+.pagination .left-arrow-button {
+    -fx-background-color: rgba(240, 242, 245, 1);
+    -fx-background-insets: 0px 0px 0px 0px;
+    -fx-border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+}
+.pagination .left-arrow-button:hover .left-arrow {
+    -fx-background-color: rgba(64, 158, 255, 1);
+}
+.pagination .left-arrow-button .left-arrow {
+    -fx-shape: "M401.066667 512l302.933333 302.933333-59.733333 59.733334L341.333333 571.733333 281.6 512 341.333333 452.266667l302.933334-302.933334 59.733333 59.733334L401.066667 512z";
+}
+.pagination .right-arrow-button {
+    -fx-background-color: rgba(240, 242, 245, 1);
+    -fx-background-insets: 0px 0px 0px 0px;
+    -fx-border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+}
+.pagination .right-arrow-button:hover {
+    -fx-padding: 0px 0px 0px 0px;
+}
+.pagination .right-arrow-button:hover .right-arrow {
+    -fx-background-color: rgba(64, 158, 255, 1);
+}
+.pagination .right-arrow-button .right-arrow {
+    -fx-shape: "M584.533333 512l-302.933333 302.933333L341.333333 874.666667l302.933334-302.933334 59.733333-59.733333-59.733333-59.733333L341.333333 145.066667 281.6 209.066667l302.933333 302.933333z";
+}
+.pagination .number-button {
+    -fx-background-color: rgba(240, 242, 245, 1);
+    -fx-background-insets: 0px 0px 0px 0px;
+    -fx-background-radius: 3px 3px 3px 3px;
+    -fx-border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+    -fx-cursor: HAND;
+}
+.pagination .number-button:hover {
+    -fx-text-fill: rgba(64, 158, 255, 1);
+}
+.pagination .number-button:selected {
+    -fx-background-color: rgba(64, 158, 255, 1);
+    -fx-text-fill: rgba(255, 255, 255, 1);
+}
+.context-menu {
+    -fx-background-insets: 0px 0px 0px 0px;
+}
+.context-menu .menu-item:hover, .context-menu .menu-item:focused {
+    -fx-background-color: rgba(238, 238, 238, 1);
+}
+.context-menu .menu-item .label {
+    -fx-text-fill: rgba(0, 0, 0, 1);
+    -fx-padding: 5px 100px 5px 5px;
+}
+.slider .track {
+    -fx-background-color: rgba(228, 231, 237, 1);
+}
+.slider .thumb {
+    -fx-background-color: rgba(255, 255, 255, 1);
+    -fx-border-color: rgba(64, 158, 255, 1) rgba(64, 158, 255, 1) rgba(64, 158, 255, 1) rgba(64, 158, 255, 1);
+    -fx-border-radius: 1em 1em 1em 1em;
+    -fx-cursor: HAND;
+}
+.slider .thumb:pressed {
+    -fx-background-color: rgba(228, 231, 237, 1);
+}
+.progress-bar {
+    -fx-background-color: rgba(255, 255, 255, 1);
+    -fx-background-insets: 0px 0px 0px 0px;
+    -fx-padding: 0px 0px 0px 0px;
+}
+.progress-bar .track {
+    -fx-background-color: rgba(235, 238, 245, 1);
+}
+.progress-bar .bar {
+    -fx-background-color: rgba(64, 158, 255, 1);
+}
+.tree-view {
+    -fx-background-color: rgba(255, 255, 255, 1);
+}
+.tree-view .tree-cell {
+    -fx-background-color: rgba(255, 255, 255, 1);
+    -fx-text-fill: rgba(0, 0, 0, 1);
+    -fx-cursor: HAND;
+}
+.tree-view .tree-cell:hover {
+    -fx-background-color: rgba(245, 247, 250, 1);
+}
+.tree-view .tree-cell:selected {
+    -fx-background-color: rgba(245, 247, 250, 1);
+}
+.tree-view .tree-cell:empty {
+    -fx-background-color: rgba(0, 0, 0, 0);
+}
+.tree-view .tree-cell .tree-disclosure-node .arrow {
+    -fx-background-color: rgba(168, 171, 178, 1);
+}

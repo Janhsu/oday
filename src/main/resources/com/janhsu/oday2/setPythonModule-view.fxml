@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="230.0" prefWidth="400.0" stylesheets="@../../../css/ElementFX.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.janhsu.oday2.controllers.SetPythonModuleController">
+   <children>
+      <Label layoutX="38.0" layoutY="39.0" text="Python2执行命令" />
+      <Label layoutX="38.0" layoutY="90.0" text="Python3执行命令" />
+      <TextField fx:id="py2CmdText" layoutX="152.0" layoutY="32.0" prefHeight="33.0" prefWidth="177.0" />
+      <TextField fx:id="py3CmdText" layoutX="152.0" layoutY="83.0" prefHeight="33.0" prefWidth="177.0" />
+      <Button layoutX="329.0" layoutY="174.0" mnemonicParsing="false" onAction="#saveSet" text="保存" />
+   </children>
+</AnchorPane>

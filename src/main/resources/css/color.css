@@ -1,0 +1,12 @@
+
+.cf-color-root{
+    primary-color:#5C80EF;
+    success-color:#33C437;
+    info-color:#68C0FF;
+    warn-color:#FFDC42;
+    danger-color:#FF4B3A;
+
+    text-color:#303133;
+    border-color:#D4D7DE;
+    base-color:#F2F3F5;
+}
