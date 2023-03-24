@@ -37,12 +37,6 @@ cms扫描即扫描某个cms的漏洞，这取决于添加poc时填入的cms名�
 自定义扫描即自由选择本次扫描需要扫描的漏洞进行扫描，双击添加进待扫描漏洞列表。
 ![image](https://user-images.githubusercontent.com/62692103/227561636-1c1e850f-bd24-4df5-9582-f9abd6685104.png)
 
-
-### 漏洞利用
-
-在添加poc时填写了利用参数的漏洞将会显示在下拉列表中，分为文件上传和RCE两种方式。选择了rce后会出现cmd文本框，填入要执行的命令即可。如有其他header可另行填入header文本框中。
-![image](https://user-images.githubusercontent.com/62692103/227561841-b3aaaa2c-1380-4633-a555-9076fcbd91bd.png)
-
 ### 调用脚本
 
 某些不方便添加poc参数的漏洞，可通过脚本形式进行调用，其实就是一个python脚本收集的功能，方便对脚本进行收藏管理。
