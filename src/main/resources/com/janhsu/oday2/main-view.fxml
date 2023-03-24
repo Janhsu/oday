@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="cf-color-root" stylesheets="@../../../css/color.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.janhsu.oday2.MainController">
+   <children>
+      <TabPane fx:id="rootTabPane" layoutX="20.0" layoutY="6.0" prefHeight="580.0" prefWidth="970.0" stylesheets="@../../../css/ElementFX.css" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+            <Tab text="POC管理">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="showVulnTableView" layoutX="29.0" layoutY="60.0" prefHeight="461.0" prefWidth="910.0">
+                          <columns>
+                              <TableColumn fx:id="cmsNameCol" prefWidth="101.0" text="CMS" />
+                            <TableColumn fx:id="vulnNameCol" prefWidth="193.5" text="漏洞名" />
+                            <TableColumn fx:id="vulnTypeCol" prefWidth="97.5" text="漏洞类型" />
+                              <TableColumn fx:id="timeCol" prefWidth="162.5" text="时间" />
+                              <TableColumn fx:id="vulnIntroCol" prefWidth="356.0" text="描述" />
+                          </columns>
+                           <contextMenu>
+                              <ContextMenu>
+                                <items>
+                                  <MenuItem mnemonicParsing="false" onAction="#editVuln" text="   编辑  " />
+                                    <MenuItem mnemonicParsing="false" onAction="#deleteVuln" text="   删除" />
+                                    <MenuItem mnemonicParsing="false" onAction="#exportVuln" text="   导出" />
+                                </items>
+                              </ContextMenu>
+                           </contextMenu>
+                        </TableView>
+                        <TextField fx:id="vulnNameInput" layoutX="110.0" layoutY="18.0" prefHeight="33.0" prefWidth="387.0" />
+                        <Button layoutX="507.0" layoutY="19.0" mnemonicParsing="false" onAction="#searchVuln" text="搜索" />
+                        <Button layoutX="795.0" layoutY="19.0" mnemonicParsing="false" onAction="#addVulnGui" text="增加" />
+                        <Label layoutX="45.0" layoutY="23.0" prefWidth="56.0" styleClass="cf-info-label-b" stylesheets="@../../../css/core.css" text="漏洞名" />
+                        <Button layoutX="586.0" layoutY="19.0" mnemonicParsing="false" onAction="#setProxy" prefHeight="25.0" prefWidth="82.0" text="设置代理" />
+                        <Button layoutX="872.0" layoutY="19.0" mnemonicParsing="false" onAction="#importVulnObject" text="导入" />
+                        <Text fx:id="pocNumText" fill="#757575" layoutX="29.0" layoutY="533.0" strokeType="OUTSIDE" strokeWidth="0.0" text="当前POC数量:%s">
+                           <font>
+                              <Font name="Consolas" size="12.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+          <Tab text="漏洞扫描">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="171.0" prefWidth="223.0">
+                     <children>
+                        <TabPane fx:id="scanTabPane" layoutY="-5.0" prefHeight="544.0" prefWidth="970.0" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                              <Tab fx:id="allScanTab" text="全部扫描">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Button layoutX="848.0" layoutY="142.0" mnemonicParsing="false" onAction="#clickAllScan" styleClass="cf-success-but" stylesheets="@../../../css/core.css" text="SCAN" />
+                                          <TextArea fx:id="allScanUrlTextField" layoutX="205.0" layoutY="37.0" prefHeight="137.0" prefWidth="558.0" promptText="格式：http|https://xxxx" />
+                                          <TextArea fx:id="allScanResTextArea" layoutX="206.0" layoutY="243.0" prefHeight="235.0" prefWidth="557.0" />
+                                          <Separator layoutY="230.0" prefHeight="0.0" prefWidth="951.0" />
+                                          <Label layoutX="149.0" layoutY="42.0" styleClass="cf-info-label-b" stylesheets="@../../../css/core.css" text="URL" />
+                                          <Label layoutX="148.0" layoutY="243.0" styleClass="cf-info-label-b" stylesheets="@../../../css/core.css" text="结果" />
+                                          <Label fx:id="tipsVuln1" layoutX="684.0" layoutY="73.0" prefHeight="18.0" prefWidth="79.0" text="请选择漏洞！" visible="false" />
+                                          <Label fx:id="tipsUrl1" layoutX="692.0" layoutY="203.0" prefHeight="18.0" prefWidth="71.0" text="请填入url！" visible="false" />
+                                          <TextField fx:id="threadNumTextAll" layoutX="848.0" layoutY="38.0" prefHeight="33.0" prefWidth="67.0" text="100" />
+                                          <Label layoutX="784.0" layoutY="42.0" styleClass="cf-info-label-b" stylesheets="@../../../css/core.css" text="线程" />
+                                          <Button layoutX="780.0" layoutY="142.0" mnemonicParsing="false" onAction="#importUrlFile" text="导入" />
+                                          <Text fx:id="urlFilePath" fill="#757575" layoutX="206.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                                             <font>
+                                                <Font name="Consolas" size="12.0" />
+                                             </font></Text>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                            <Tab fx:id="vulnScanTab" text="单项扫描">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <ComboBox fx:id="vulnScanCombox" layoutX="205.0" layoutY="36.0" prefHeight="37.0" prefWidth="370.0" />
+                                          <Label layoutX="147.0" layoutY="42.0" styleClass="cf-info-label-b" stylesheets="@../../../css/core.css" text="漏洞" />
+                                          <Button layoutX="784.0" layoutY="171.0" mnemonicParsing="false" onAction="#clickVulnScan" styleClass="cf-success-but" stylesheets="@../../../css/core.css" text="SCAN" />
+                                          <TextArea fx:id="vulnScanUrlTextField" layoutX="205.0" layoutY="112.0" prefHeight="91.0" prefWidth="558.0" promptText="格式：http|https://xxxx" />
+                                          <TextArea fx:id="vulnScanResTextArea" layoutX="206.0" layoutY="278.0" prefHeight="200.0" prefWidth="557.0" />
+                                          <Separator layoutX="8.0" layoutY="253.0" prefHeight="0.0" prefWidth="951.0" />
+                                          <Label layoutX="148.0" layoutY="112.0" styleClass="cf-info-label-b" stylesheets="@../../../css/core.css" text="URL" />
+                                          <Label layoutX="147.0" layoutY="278.0" styleClass="cf-info-label-b" stylesheets="@../../../css/core.css" text="结果" />
+                                          <Label fx:id="tipsVuln" layoutX="684.0" layoutY="73.0" prefHeight="18.0" prefWidth="79.0" text="请选择漏洞！" visible="false" />
+                                          <Label fx:id="tipsUrl" layoutX="692.0" layoutY="203.0" prefHeight="18.0" prefWidth="71.0" text="请填入url！" visible="false" />
+                                          <TextField fx:id="threadNumText" layoutX="839.0" layoutY="38.0" prefHeight="33.0" prefWidth="67.0" text="100" />
+                                          <Label layoutX="784.0" layoutY="42.0" styleClass="cf-info-label-b" stylesheets="@../../../css/core.css" text="线程" />
+                                          <TextField fx:id="vulnFilterTextField" layoutX="593.0" layoutY="38.0" prefHeight="33.0" prefWidth="170.0" promptText="键入搜索关键字" />
+                                       </children></AnchorPane>
+                              </content>
+                            </Tab>
+                              <Tab fx:id="cmsScanTab" text="CMS扫描">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <ComboBox fx:id="cmsScanCombox" layoutX="205.0" layoutY="36.0" prefHeight="37.0" prefWidth="558.0" />
+                                          <Label layoutX="147.0" layoutY="42.0" styleClass="cf-info-label-b" stylesheets="@../../../css/core.css" text="CMS" />
+                                          <Button layoutX="784.0" layoutY="171.0" mnemonicParsing="false" onAction="#clickCmsScan" styleClass="cf-success-but" stylesheets="@../../../css/core.css" text="SCAN" />
+                                          <TextArea fx:id="cmsScanUrlTextField" layoutX="205.0" layoutY="112.0" prefHeight="91.0" prefWidth="558.0" promptText="格式：http|https://xxxx" />
+                                          <TextArea fx:id="cmsScanResTextArea" layoutX="206.0" layoutY="278.0" prefHeight="200.0" prefWidth="557.0" />
+                                          <Separator layoutX="8.0" layoutY="253.0" prefHeight="0.0" prefWidth="951.0" />
+                                          <Label layoutX="148.0" layoutY="112.0" styleClass="cf-info-label-b" stylesheets="@../../../css/core.css" text="URL" />
+                                          <Label layoutX="147.0" layoutY="278.0" styleClass="cf-info-label-b" stylesheets="@../../../css/core.css" text="结果" />
+                                          <TextField fx:id="threadNumTextCms" layoutX="839.0" layoutY="38.0" prefHeight="33.0" prefWidth="67.0" text="100" />
+                                          <Label layoutX="784.0" layoutY="42.0" styleClass="cf-info-label-b" stylesheets="@../../../css/core.css" text="线程" />
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                              <Tab fx:id="customScanTab" text="自定义">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TextArea fx:id="customScanResTextArea" layoutX="448.0" layoutY="244.0" prefHeight="244.0" prefWidth="505.0" />
+                                          <Label layoutX="392.0" layoutY="243.0" stylesheets="@../../../css/core.css" text="结果">
+                                             <styleClass>
+                                                <String fx:value="cf-color-root" />
+                                                <String fx:value="cf-info-label-b" />
+                                             </styleClass>
+                                          </Label>
+                                          <ListView fx:id="allPocListView" layoutX="14.0" layoutY="47.0" prefHeight="200.0" prefWidth="320.0" />
+                                          <ListView fx:id="selectedPocListView" layoutX="14.0" layoutY="288.0" prefHeight="200.0" prefWidth="320.0" />
+                                          <TextArea fx:id="customScanUrlTextField" layoutX="448.0" layoutY="12.0" prefHeight="147.0" prefWidth="355.0" />
+                                          <Button layoutX="877.0" layoutY="130.0" mnemonicParsing="false" onAction="#clickCustomScan" stylesheets="@../../../css/core.css" text="Start">
+                                             <styleClass>
+                                                <String fx:value="cf-color-root" />
+                                                <String fx:value="cf-success-label-b" />
+                                             </styleClass>
+                                          </Button>
+                                          <Label layoutX="393.0" layoutY="12.0" styleClass="cf-info-label-b" stylesheets="@../../../css/core.css" text="URL" />
+                                          <TextField fx:id="customFilterTextField" layoutX="69.0" layoutY="7.0" prefHeight="33.0" prefWidth="265.0" />
+                                          <Label layoutX="14.0" layoutY="12.0" styleClass="cf-info-label-b" stylesheets="@../../../css/core.css" text="POC" />
+                                          <Label layoutX="14.0" layoutY="255.0" styleClass="cf-info-label-b" stylesheets="@../../../css/core.css" text="已选择" />
+                                          <Button layoutX="810.0" layoutY="127.0" mnemonicParsing="false" onAction="#importCustomUrlFile" text="导入" />
+                                          <Separator layoutX="385.0" layoutY="1.0" orientation="VERTICAL" prefHeight="493.0" prefWidth="0.0" />
+                                          <Text fx:id="customUrlFileText" fill="#757575" layoutX="448.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                                             <font>
+                                                <Font name="Consolas" size="12.0" />
+                                             </font>
+                                          </Text>
+                                          <TextField fx:id="threadNumTextCustom" layoutX="877.0" layoutY="20.0" prefHeight="33.0" prefWidth="60.0" text="100" />
+                                          <Label layoutX="814.0" layoutY="24.0" stylesheets="@../../../css/core.css" text="线程">
+                                             <styleClass>
+                                                <String fx:value="cf-color-root" />
+                                                <String fx:value="cf-info-label-b" />
+                                             </styleClass>
+                                          </Label>
+                                       </children></AnchorPane>
+                                </content>
+                              </Tab>
+                          </tabs>
+                        </TabPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="vulnExploitTab" text="漏洞利用">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="538.0" prefWidth="992.0">
+                     <children>
+                        <ComboBox fx:id="vulnExploitCombox" layoutX="185.0" layoutY="37.0" prefHeight="37.0" prefWidth="330.0" />
+                        <Label layoutX="89.0" layoutY="43.0" styleClass="cf-info-label-b" stylesheets="@../../../css/core.css" text="选择漏洞" />
+                        <Label layoutX="90.0" layoutY="168.0" styleClass="cf-info-label-b" stylesheets="@../../../css/core.css" text="漏洞URL" />
+                        <TextField fx:id="vulnExploitUrlTextField" layoutX="185.0" layoutY="163.0" prefHeight="33.0" prefWidth="608.0" />
+                        <Label layoutX="89.0" layoutY="102.0" styleClass="cf-info-label-b" stylesheets="@../../../css/core.css" text="追加参数" />
+                        <TextField fx:id="appendHeadersTextField" layoutX="185.0" layoutY="97.0" prefHeight="33.0" prefWidth="330.0" />
+                        <Label layoutX="89.0" layoutY="252.0" styleClass="cf-info-label-b" stylesheets="@../../../css/core.css" text="返回结果" />
+                        <TextArea fx:id="vulnExploitResTextArea" layoutX="185.0" layoutY="252.0" prefHeight="269.0" prefWidth="725.0" />
+                        <Button layoutX="820.0" layoutY="164.0" mnemonicParsing="false" onAction="#clickVulnExploit" styleClass="cf-success-but" stylesheets="@../../../css/core.css" text="ATTACK" />
+                        <Label layoutX="555.0" layoutY="43.0" styleClass="cf-info-label-b" stylesheets="@../../../css/core.css" text="利用方式" />
+                        <ComboBox fx:id="exploitMethodCombox" layoutX="641.0" layoutY="37.0" prefHeight="37.0" prefWidth="152.0">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="FileUpload" />
+                                    <String fx:value="RCE" />
+                                </FXCollections>
+                            </items>
+                        </ComboBox>
+                        <Label fx:id="cmdLable" layoutX="555.0" layoutY="102.0" styleClass="cf-info-label-b" stylesheets="@../../../css/core.css" text="CMD" visible="false" />
+                        <TextField fx:id="cmdTextField" layoutX="641.0" layoutY="97.0" prefHeight="33.0" prefWidth="267.0" visible="false" />
+                        <Separator layoutX="8.0" layoutY="226.0" prefHeight="2.0" prefWidth="953.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="usePyExpTab" text="调用脚本">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="showPyExpTableView" layoutX="34.0" layoutY="75.0" prefHeight="430.0" prefWidth="900.0">
+                          <columns>
+                            <TableColumn fx:id="expNameCol" minWidth="0.0" prefWidth="146.0" text="脚本名" />
+                              <TableColumn fx:id="expUsageCol" prefWidth="281.5" text="使用方法" />
+                              <TableColumn fx:id="expPathCol" prefWidth="252.5" text="存储位置" />
+                              <TableColumn fx:id="expUploadTimeCol" prefWidth="127.0" text="上传时间" />
+                              <TableColumn fx:id="expAuthorCol" prefWidth="91.5" text="上传者" />
+                          </columns>
+                           <contextMenu>
+                              <ContextMenu>
+                                <items>
+                                    <MenuItem mnemonicParsing="false" onAction="#updatePythonExp" text="   编辑  " />
+                                </items>
+                              </ContextMenu>
+                           </contextMenu>
+                        </TableView>
+                        <Button layoutX="782.0" layoutY="29.0" mnemonicParsing="false" onAction="#uploadPyExp" text="导入" />
+                        <Button layoutX="852.0" layoutY="29.0" mnemonicParsing="false" onAction="#pythonSetting" text="设置" />
+                        <Label layoutX="85.0" layoutY="35.0" text="脚本名" />
+                        <TextField fx:id="pyNameInput" layoutX="140.0" layoutY="28.0" prefHeight="33.0" prefWidth="245.0" />
+                        <Button layoutX="405.0" layoutY="29.0" mnemonicParsing="false" onAction="#searchPyExp" text="搜索" />
+                        <Label fx:id="usePyExpTabResText" layoutX="769.0" layoutY="515.0" prefHeight="18.0" prefWidth="165.0" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Web识别">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="151.0" layoutY="43.0" styleClass="cf-info-label-b" text="URL">
+                           <stylesheets>
+                              <URL value="@../../../css/core.css" />
+                              <URL value="@../../../css/color.css" />
+                           </stylesheets>
+                        </Label>
+                        <TextArea fx:id="ipPortTextField" layoutX="209.0" layoutY="43.0" prefHeight="160.0" prefWidth="550.0" promptText="ip:port" />
+                        <TextArea fx:id="webFindResultTextArea" layoutX="209.0" layoutY="253.0" prefHeight="270.0" prefWidth="550.0">
+                           <contextMenu>
+                              <ContextMenu>
+                                <items>
+                                  <MenuItem mnemonicParsing="false" onAction="#exportRes" text="导出结果" />
+                                </items>
+                              </ContextMenu>
+                           </contextMenu></TextArea>
+                        <Label layoutX="138.0" layoutY="253.0" styleClass="cf-info-label-b" stylesheets="@../../../css/core.css" text="Result" />
+                        <Button layoutX="777.0" layoutY="171.0" mnemonicParsing="false" onAction="#webFindImport" text="导入" />
+                        <Button layoutX="853.0" layoutY="174.0" mnemonicParsing="false" onAction="#startWebFinder" styleClass="cf-success-label-b" stylesheets="@../../../css/core.css" text="Start" />
+                        <Label layoutX="781.0" layoutY="55.0" styleClass="cf-info-label-b" stylesheets="@../../../css/core.css" text="线程" />
+                        <TextField fx:id="threadsTextFieldFind" layoutX="843.0" layoutY="51.0" prefHeight="33.0" prefWidth="80.0" text="1000" />
+                        <Text fx:id="filePathTextFind" layoutX="209.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="关于">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Text layoutX="152.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="请勿将本项目技术或代码应用在恶意软件制作、软件著作权/知识产权盗取或不当牟利等非法用途中。">
+                           <font>
+                              <Font size="15.0" />
+                           </font></Text>
+                        <Text fill="#d52811" layoutX="438.0" layoutY="252.0" strokeType="OUTSIDE" strokeWidth="0.0" text="免责声明">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="103.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="在使用本工具时，您应确保该行为符合当地的法律法规，并且已经取得了足够的授权，请勿对非授权目标进行访问。">
+                           <font>
+                              <Font size="15.0" />
+                           </font></Text>
+                        <Text layoutX="125.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="如您在使用本工具的过程中存在任何非法行为，您需自行承担相应后果，我们将不承担任何法律及连带责任。">
+                           <font>
+                              <Font size="15.0" />
+                           </font></Text>
+                        <Text layoutX="417.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Powered By d0g3ee" wrappingWidth="135.83203125">
+                           <font>
+                              <Font name="Consolas" size="14.0" />
+                           </font></Text>
+                        <Text layoutX="305.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Oday v0.9.8 Beta">
+                           <font>
+                              <Font name="Consolas" size="41.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="356.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="POC管理和漏洞扫描集成化工具">
+                           <font>
+                              <Font name="Consolas" size="19.0" />
+                           </font>
+                        </Text>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <Text layoutX="873.0" layoutY="604.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Powered By d0g3ee">
+         <font>
+            <Font name="Consolas" size="12.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
