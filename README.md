@@ -1,5 +1,5 @@
 # oday
-javafx编写的poc管理工具和漏洞扫描的小工具
+javafx编写的poc管理和漏洞扫描小工具
 ## 介绍
 
 本工具是采用javafx编写，使用sqllite进行poc储存的poc管理和漏洞扫描集成化工具。主要功能是poc管理，并且采用多线程进行漏洞扫描,不具有漏洞利用功能。
@@ -9,30 +9,35 @@ javafx编写的poc管理工具和漏洞扫描的小工具
 ### POC管理
 显示当前poc列表。
 右键poc可以删除、编辑。也可以导出分享poc。
-![image](https://user-images.githubusercontent.com/62692103/227555382-9616d174-5b77-44a6-ab3b-3b3a2dc221a3.png)
+![image](https://user-images.githubusercontent.com/62692103/227689243-d284af30-af10-43e7-8599-daf3bf32136e.png)
+
 
 ### 增加POC
 
 第一页填写poc介绍信息；
-![image](https://user-images.githubusercontent.com/62692103/227555750-0bad2fb0-567b-4f5c-885b-022822f59e6a.png)
+![image](https://user-images.githubusercontent.com/62692103/227689258-55ccec64-b741-41b2-9980-588d1ec56eb1.png)
+
 
 第二页填写漏洞扫描时所使用的参数，注意选择合适的回显验证方式，目前提供5种方式，若选择两种组合验证，还需选择两者之间的组合关系；若为文件上传漏洞，可以勾选shell验证来对上传后的文件进行验证；
-![image](https://user-images.githubusercontent.com/62692103/227555807-c1997a5f-7dff-4850-bf3c-bd8032f16b4f.png)
+![image](https://user-images.githubusercontent.com/62692103/227689270-ef089fd0-5d66-4710-a5aa-cf49fd15ce94.png)
 
 ### 漏洞扫描
 
 全部扫描即扫描当前所有漏洞,资产数量过多时需要以文件形式导入，否则会乱码。
-![image](https://user-images.githubusercontent.com/62692103/227560669-e20377aa-c156-4c9d-ac24-99d9dde9f655.png)
+![image](https://user-images.githubusercontent.com/62692103/227689629-0f1b75b3-92ee-43d9-a532-06e337c94c09.png)
+
 
 单项扫描即扫描某个漏洞；
-![image](https://user-images.githubusercontent.com/62692103/227560870-5495d20d-dbb8-41d7-95f4-7917ab9a6403.png)
+![image](https://user-images.githubusercontent.com/62692103/227689649-89f19445-1741-4b2b-bc74-69ffcf3afe73.png)
+
 
 cms扫描即扫描某个cms的漏洞，这取决于添加poc时填入的cms名称；
-![image](https://user-images.githubusercontent.com/62692103/227561076-d8756227-d1c8-4942-b7ca-9ceec93236d3.png)
+![image](https://user-images.githubusercontent.com/62692103/227689672-9d432eed-ab05-4142-974d-0ce5768c6e83.png)
 
 
-自定义扫描即自由选择本次扫描需要扫描的漏洞进行扫描，双击添加进待扫描漏洞列表。
-![image](https://user-images.githubusercontent.com/62692103/227561636-1c1e850f-bd24-4df5-9582-f9abd6685104.png)
+
+自定义扫描即自由选择本次扫描需要的漏洞进行扫描，双击添加进待扫描漏洞列表。
+![image](https://user-images.githubusercontent.com/62692103/227689695-075d5b8e-db42-4d92-a5cf-a2f88b9c9289.png)
 
 ### 调用脚本
 
@@ -43,7 +48,7 @@ cms扫描即扫描某个cms的漏洞，这取决于添加poc时填入的cms名�
 ### web识别
 
 为了快速发现web端口，对端口扫描的结果进行http，https的识别。结果可保存到文件。
-![image](https://user-images.githubusercontent.com/62692103/227564493-201fc021-7ce9-4427-9749-5e699d953124.png)
+![image](https://user-images.githubusercontent.com/62692103/227689779-6db690f3-6b41-4d39-a722-e17e02a2f069.png)
 
 ### Log记录
 每次扫描都会在根目录下log文件夹内的log文件内写入记录；
@@ -65,4 +70,4 @@ cms扫描即扫描某个cms的漏洞，这取决于添加poc时填入的cms名�
 
 ## 免责声明
 
-本工具的截图所进行演示均在本地环境或授权情况下进行，且本工具不包含任何权限级别的漏洞利用poc，仅作为企业或个人资产漏洞自查的安全建设工具。在使用本工具时，您应确保该行为符合当地的法律法规，并且已经取得了足够的授权，请勿对非授权目标进行访问。如您在使用本工具的过程中存在任何非法行为，您需自行承担相应后果，我们将不承担任何法律及连带责任。请勿将本项目技术或代码应用在恶意软件制作、软件著作权/知识产权盗取或不当牟利等非法用途中。
+本工具截图所进行的演示均在本地环境或授权情况下进行，且本工具不包含任何权限级别的漏洞利用poc，也不包含漏洞利用功能，仅作为企业或个人资产漏洞自查的安全建设工具。在使用本工具时，您应确保该行为符合当地的法律法规，并且已经取得了足够的授权，请勿对非授权目标进行访问。如您在使用本工具的过程中存在任何非法行为，您需自行承担相应后果，我们将不承担任何法律及连带责任。请勿将本项目技术或代码应用在恶意软件制作、软件著作权/知识产权盗取或不当牟利等非法用途中。
