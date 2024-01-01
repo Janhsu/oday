@@ -2,7 +2,18 @@
 javafx编写的poc管理和漏洞扫描小工具
 ## 介绍
 
-本工具是采用javafx编写，使用sqllite进行poc储存的poc管理和漏洞扫描集成化工具。主要功能是poc管理，并且采用多线程进行漏洞扫描。
+本工具是采用javafx编写，使用sqllite进行poc储存的poc管理和漏洞扫描集成化工具。可以可视化添加POC和指纹进行POC管理和漏洞扫描功能，包含POC管理、漏洞扫描、指纹识别、指纹库等模块。
+
+## 1.3版本更新
+**1.多次请求**
+添加漏洞POC时可添加多个请求，以适应某些需要多次发包的POC；
+
+**2.漏洞扫描逻辑优化**
+将之前漏洞扫描的多种方式进行整合，简化逻辑。
+
+**3.修复一些已知bug**
+
+**4.移除了一些鸡肋的功能**
 
 ## 1.2版本更新
 **1.加入web指纹模块**
@@ -24,61 +35,41 @@ javafx编写的poc管理和漏洞扫描小工具
 
 4.双击poc可查看poc描述
 
-## 模块
-
+## 部分功能使用说明
+ 
 ### POC管理
-显示当前poc列表。
-右键poc可以删除、编辑。也可以导出分享poc。
-![image](https://user-images.githubusercontent.com/62692103/227689243-d284af30-af10-43e7-8599-daf3bf32136e.png)
+Poc管理模块包含poc的预览、增加、导入、导出、编辑、删除功能。
+<img width="1000" alt="image" src="https://github.com/Janhsu/oday/assets/62692103/562cf594-3ab3-41e1-812f-51aac717a82e">
 
+CMS可选从指纹库拉取的CMS名或者自定义输入，漏洞名称、漏洞类型、漏洞描述均自定义填写。
+<img width="800" alt="image" src="https://github.com/Janhsu/oday/assets/62692103/7ac8ccc6-655c-4479-ad52-79433e6178ed">
 
-### 增加POC
+右键添加请求包可添加编辑删除多个请求，以适应某些需要多次发包的POC；Headers填写请求时必须的Header头，一行填写一个；请求次序选择该请求包发送的顺序；
 
-第一页填写poc介绍信息；
-![image](https://user-images.githubusercontent.com/62692103/227689258-55ccec64-b741-41b2-9980-588d1ec56eb1.png)
+<img width="800" alt="image" src="https://github.com/Janhsu/oday/assets/62692103/5fbeb8c9-1b7d-4955-9558-9514b357d76a">
+<img width="700" alt="image" src="https://github.com/Janhsu/oday/assets/62692103/62d0a54c-8c2e-45ab-8459-e877dccbe36b">
 
+自定义变量可对该次请求的的结果进行处理，提取需要的字段保存为公共变量，后续请求包带上{{变量名}}即可使用该变量；
 
-第二页填写漏洞扫描时所使用的参数，注意选择合适的回显验证方式，目前提供5种方式，若选择两种组合验证，还需选择两者之间的组合关系；若为文件上传漏洞，可以勾选shell验证来对上传后的文件进行验证；
-![image](https://user-images.githubusercontent.com/62692103/227689270-ef089fd0-5d66-4710-a5aa-cf49fd15ce94.png)
+<img width="696" alt="image" src="https://github.com/Janhsu/oday/assets/62692103/0e723370-7043-4165-af1a-010a97e22e39">
+<img width="700" alt="image" src="https://github.com/Janhsu/oday/assets/62692103/566ff72c-ab37-4dc1-98bd-741d4e0f4c33">
+
+在填写完所有请求包后，选择请求包中的某次请求作为二次验证的请求包；
+
 
 ### 漏洞扫描
+左侧选择需要扫描的漏洞；勾选匹配指纹后，在漏洞扫描前先对URL进行指纹识别，识别到指纹的URL扫描对应指纹的POC和CMS名称为All的POC，未识别到指纹的URL进行全部POC扫描；右键扫描结果，可对结果进行二次验证；扫描结果可保存为CSV文件（macos打开该CSV文件中时，其中的文字符会乱码）。
 
-全部扫描即扫描当前所有漏洞,资产数量过多时需要以文件形式导入，否则会乱码。
-![image](https://user-images.githubusercontent.com/62692103/227689629-0f1b75b3-92ee-43d9-a532-06e337c94c09.png)
-
-
-单项扫描即扫描某个漏洞；
-![image](https://user-images.githubusercontent.com/62692103/227689649-89f19445-1741-4b2b-bc74-69ffcf3afe73.png)
+<img width="1000" alt="image" src="https://github.com/Janhsu/oday/assets/62692103/245ed34c-990e-4e55-99ad-61b5baafc54a">
+<img width="900" alt="image" src="https://github.com/Janhsu/oday/assets/62692103/dae7e149-1db4-4f92-b913-2728a3cfda76">
 
 
-cms扫描即扫描某个cms的漏洞，这取决于添加poc时填入的cms名称；
-![image](https://user-images.githubusercontent.com/62692103/227689672-9d432eed-ab05-4142-974d-0ce5768c6e83.png)
-
-
-
-自定义扫描即自由选择本次扫描需要的漏洞进行扫描，双击添加进待扫描漏洞列表。
-![image](https://user-images.githubusercontent.com/62692103/227689695-075d5b8e-db42-4d92-a5cf-a2f88b9c9289.png)
-
-### 调用脚本
-
-某些不方便添加poc参数的漏洞，可通过脚本形式进行调用，其实就是一个python脚本收集的功能，方便对脚本进行收藏管理。
-![image](https://user-images.githubusercontent.com/62692103/227562630-cf1f9bce-3650-4600-b9c0-7cc9b596bbb2.png)
-
-
-### web识别
-
-为了快速发现web端口，对端口扫描的结果进行http，https的识别。结果可保存到文件。
-![image](https://user-images.githubusercontent.com/62692103/227689779-6db690f3-6b41-4d39-a722-e17e02a2f069.png)
-
-### Log记录
-每次扫描都会在根目录下log文件夹内的log文件内写入记录；
-![image](https://user-images.githubusercontent.com/62692103/227563320-97e9078f-04c0-4e8d-9d56-1a7fc4743a83.png)
 
 ## 使用场景
 
 这个工具可以看作一个简单的漏洞扫描框架，需要扫描什么漏洞，就可以自己进行调试添加；调试好的poc可以导出分享给团队成员，也可以导入他人调试好的poc。它可以是oa漏洞扫描工具，也可以是框架漏洞扫描工具，也可以是默认弱口令扫描工具，这完全取决于添加的poc。
 
-## 不足之处
+## 不足之处    
 
 ~目前还没有做指纹识别，是比较傻瓜式的全部遍历扫描，虽然使用了多线程，但是在poc数量较多且目标资产较多的情况下，扫描速度还是不尽如人意。且会增加误报概率。~
 工具为本人初学安全开发写的一个练手的小工具，不足之处还请各位大佬轻喷。
