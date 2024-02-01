@@ -55,12 +55,38 @@ CMS可选从指纹库拉取的CMS名或者自定义输入，漏洞名称、漏�
 <img width="800" alt="image" src="https://github.com/Janhsu/oday/assets/62692103/5fbeb8c9-1b7d-4955-9558-9514b357d76a">
 <img width="700" alt="image" src="https://github.com/Janhsu/oday/assets/62692103/62d0a54c-8c2e-45ab-8459-e877dccbe36b">
 
-自定义变量可对该次请求的的结果进行处理，提取需要的字段保存为公共变量，后续请求包带上{{变量名}}即可使用该变量；
+自定义变量可对该次请求的的结果进行处理，提取需要的字段保存为公共变量(直接用～代替需要截取的部分)，后续请求包带上{{变量名}}即可使用该变量；
 
-<img width="696" alt="image" src="https://github.com/Janhsu/oday/assets/62692103/0e723370-7043-4165-af1a-010a97e22e39">
+<img width="500" alt="image" src="https://github.com/Janhsu/oday/assets/62692103/18e3f7dc-bca7-4d73-82fe-7a881234d051">
 <img width="700" alt="image" src="https://github.com/Janhsu/oday/assets/62692103/566ff72c-ab37-4dc1-98bd-741d4e0f4c33">
 
-在填写完所有请求包后，选择请求包中的某次请求作为二次验证的请求包；
+在填写完所有请求包后，选择请求包中的某次请求作为二次验证的请求包：
+
+
+提示：添加POC时使用的占位关键字：
+1.使用HexDecode{{内容}}可在发包时将{{}}内的内容进行16进制数据解码;适配于反序列化等漏洞。如图：
+
+<img width="750" alt="image" src="https://github.com/Janhsu/oday/assets/62692103/9abbdffe-9e38-47ba-8146-a0ef22157199">
+
+2.使用Base64Decode{{内容}}可在发包时将{{}}内的内容进行base64数据解码;适配于压缩包上传等漏洞。如图：
+
+<img width="750" alt="image" src="https://github.com/Janhsu/oday/assets/62692103/702398c2-dbd6-4cb5-b6d4-f41045fc1c07">
+
+3.使用{{RequestUrl}}可在发包时替换成当前请求的url;适配于某些需要refer头或者请求路径中需要当前拼接请求URL的情况。如图：
+
+<img width="750" alt="image" src="https://github.com/Janhsu/oday/assets/62692103/6b771d48-7fd9-4ab4-a711-e788630f7b9c">
+
+4.使用{{RemoteHttpLog}}可在发包时替换成设置里设置的httplog地址。适用于命令执行不回显的情况。如图：
+
+<img width="750" alt="image" src="https://github.com/Janhsu/oday/assets/62692103/103358b6-82b5-4526-8190-b0f0cc51a0e4">
+
+#### 3.简易的httplog服务在压缩包内，vps上部署即可，使用方式：
+
+<img width="742" alt="image" src="https://github.com/Janhsu/oday/assets/62692103/e3f3d0a5-8e6c-437e-bfda-ac60124ed2fe">
+
+再在设置里填你部署的vps的地址和端口
+
+<img width="500" alt="image" src="https://github.com/Janhsu/oday/assets/62692103/0ba9661d-b098-4142-849f-a2cd8d18460d">
 
 
 ### 漏洞扫描
